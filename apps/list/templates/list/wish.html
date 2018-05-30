@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<a href="/to_wish_plans">Home</a> <a href="/logout">logout</a>
+<h3>{{wish}}</h3>
+
+
+<h5>Users who added this Item/Product under this wish list</h5>
+{% for user in joints %}
+<p>{{user.user.first_name}}{{ " " }}{{user.user.last_name}}</p>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<a href="/to_wish_plans">Home</a> <a href="/logout">logout</a>
+	{% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+	        <div style="background-color: yellow; color: red; width: 25%">{{ message }}</div>
+	    </li>
+	    {% endfor %}
+	</ul>
+	{% endif %}
+	<h1>Create a New Wish list</h1>
+	<form action="/add_plan/{{request.session.user_id}}" method="POST">
+		{% csrf_token %}
+		Item/Product: <input type="text" name="item"><br><br>
+		<input type="submit" value="Add"><br><br>
+	</form>
+
+</body>
+</html>
